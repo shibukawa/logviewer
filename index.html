@@ -77,20 +77,19 @@ Datepicker for Bootstrap: http://eternicode.github.io/bootstrap-datepicker/
       </div>
     </div>
 
-
     <div class="container">
       <div class="row">
         <div class="col-md-3">
-          <div class="list-group">
-            <a href="#" class="list-group-item active">item</a>
+          <div class="list-group" data-bind="foreach: sessions">
+              <a href="#" class="list-group-item" data-bind="css: {active: active() ? 'active' : ''}, click: click, text: session">item</a>
           </div>
         </div>
         <div class="col-md-9">
           <table class="table table-hover">
             <thead>
             </thead>
-            <tbody>
-              <tr><td>12:01</td><td><pre><code class="javascript">{"hello": "world"}</code></pre></td></tr>
+            <tbody data-bind="foreach: logs">
+              <tr><td data-bind="text: date"></td><td><pre><code class="javascript" data-bind="text: log"></code></pre></td></tr>
             </tbody>
           </table>
         </div>
