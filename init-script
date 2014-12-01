@@ -15,13 +15,15 @@
 PATH=$PATH:/usr/local/logviewer
 PROG=/usr/local/logviewer/logviewer
 PROGNAME=`basename $PROG`
-   
+PORT_NUMBER=8888
+WORKDIR=/usr/local/logviewer
+
 [ -f $PROG ] || exit 0
     
 case "$1" in
 start)
   echo -n $"Starting $PROGNAME: "
-  daemon $PROG
+  daemon $PROG &
   echo
 ;;
 stop)
