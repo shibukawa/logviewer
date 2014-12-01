@@ -1,0 +1,48 @@
+#!/bin/bash
+#
+# chkconfig: 2345 86 16
+# descripton: go web server
+# processname: logviewer
+# pidfile: none
+# config: none
+#
+ 
+# source function library
+. /etc/rc.d/init.d/functions
+ 
+# http://kobegdg.blogspot.jp/2013/03/goweb3web.html
+ 
+PATH=$PATH:/usr/local/logviewer
+PROG=/usr/local/logviewer/logviewer
+PROGNAME=`basename $PROG`
+   
+[ -f $PROG ] || exit 0
+    
+case "$1" in
+start)
+  echo -n $"Starting $PROGNAME: "
+  daemon $PROG
+  echo
+;;
+stop)
+  echo -n $"Stopping $PROGNAME:"
+  killproc $PROGNAME
+  echo
+;;
+status)
+  status $PROGNAME
+  ;;
+restart)
+  echo -n $"Stopping $PROGNAME:"
+  killproc $PROGNAME
+  echo
+  echo -n $"Starting $PROGNAME: "
+  daemon $PROG
+  echo
+;;
+*)
+  echo $"Usage: $PROGNAME {start|stop|status|restart}" >&2
+  exit 1
+;;
+esac
+exit 0
