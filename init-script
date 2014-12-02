@@ -13,7 +13,7 @@
 # http://kobegdg.blogspot.jp/2013/03/goweb3web.html
  
 PATH=$PATH:/usr/local/logviewer
-PROG=/usr/local/logviewer/logviewer
+PROG=/usr/local/logviewer/script/logviewer
 PROGNAME=`basename $PROG`
 PORT_NUMBER=8888
 WORKDIR=/usr/local/logviewer
@@ -23,7 +23,7 @@ WORKDIR=/usr/local/logviewer
 case "$1" in
 start)
   echo -n $"Starting $PROGNAME: "
-  daemon $PROG &
+  daemon $PROG
   echo
 ;;
 stop)

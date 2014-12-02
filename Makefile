@@ -12,9 +12,11 @@ install: ../logviewer
 	sudo cp -r fonts /usr/local/logviewer/
 	sudo cp -r css /usr/local/logviewer/
 	sudo cp -r js /usr/local/logviewer/
+	sudo cp -r script /usr/local/logviewer/
 	sudo cp ./init-script /etc/init.d/logviewer
+	sudo chmod 755 /etc/init.d/logviewer
 
 clean:
-	rm ../logviewer
+	rm logviewer
 	sudo rm -rf /usr/local/logviewer
 	sudo rm -rf /etc/init.d/logviewer
