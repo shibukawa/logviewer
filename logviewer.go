@@ -10,8 +10,8 @@ import (
 
 func searchHandler(w http.ResponseWriter, r *http.Request) {
 	log.Printf("query: date=%s user=%s\n", r.URL.Query()["date"][0], r.URL.Query()["user"][0])
-	pattern := fmt.Sprintf("^%s.*\\t%s", r.URL.Query()["date"][0], r.URL.Query()["user"][0])
-	files, err := filepath.Glob("./logfiles/*.log")
+	pattern := fmt.Sprintf("^%s.*%s", r.URL.Query()["date"][0], r.URL.Query()["user"][0])
+	files, err := filepath.Glob("./logfiles/*")
 	if err != nil {
 		log.Println(err)
 		fmt.Fprintf(w, "")
